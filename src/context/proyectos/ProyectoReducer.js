@@ -39,11 +39,13 @@ export default (state, action) => {
         ),
       };
     case ELIMINAR_PROYECTO:
-      return{
+      return {
         ...state,
-        proyectos: state.proyectos.filter((proyecto) => proyecto.id !== action.payload),
-        proyecto:null
-      }  
+        proyectos: state.proyectos.filter(
+          (proyecto) => proyecto.id !== action.payload
+        ),
+        proyecto: null,
+      };
     default:
       return state;
   }
