@@ -2,19 +2,19 @@ import React, { useContext } from "react";
 import proyectoContext from "../../context/proyectos/ProyectoContext";
 import tareaContext from "../../context/tareas/TareaContext";
 import Tarea from "./Tarea";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const ListadoTareas = () => {
-
   //extraer proyecto del state inicial
   const proyectosContext = useContext(proyectoContext);
   const { proyecto, eliminarProyecto } = proyectosContext;
 
   //obtener las tareas del proyecto seleccionado del context
   const tareasContext = useContext(tareaContext);
-  const {tareasproyecto} = tareasContext;
+  const { tareasproyecto } = tareasContext;
 
   //si no hay proyecto seleccionado muestra el siguiente texto:
-  if (!proyecto) return (<h2>Selecciona un Proyecto</h2>);
+  if (!proyecto) return <h2>Selecciona un Proyecto</h2>;
 
   //Array destructuring para extraer el proyecto actual
   const [proyectoActual] = proyecto;
@@ -22,8 +22,8 @@ const ListadoTareas = () => {
   //Elimina un proyecto
 
   const onClickEliminar = () => {
-    eliminarProyecto(proyectoActual.id)
-  }
+    eliminarProyecto(proyectoActual.id);
+  };
 
   return (
     <>
@@ -34,10 +34,20 @@ const ListadoTareas = () => {
             <p>No hay tareas</p>
           </li>
         ) : (
-          tareasproyecto.map((tarea) => <Tarea key={tarea.id} tarea={tarea} />)
+          <TransitionGroup>
+            {tareasproyecto.map((tarea) => (
+              <CSSTransition key={tarea.id} timeout={200} classNames={tarea}>
+                <Tarea tarea={tarea} />
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         )}
       </ul>
-      <button type="button" className="btn btn-eliminar" onClick={onClickEliminar}>
+      <button
+        type="button"
+        className="btn btn-eliminar"
+        onClick={onClickEliminar}
+      >
         Eliminar Proyecto &times;
       </button>
     </>
