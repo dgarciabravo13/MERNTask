@@ -35,8 +35,8 @@ const ListadoTareas = () => {
           </li>
         ) : (
           <TransitionGroup>
-            {tareasproyecto.map((tarea) => (
-              <CSSTransition key={tarea.id} timeout={200} classNames={tarea}>
+            {tareasproyecto.map((tarea, i) => (
+              <CSSTransition key={i} timeout={200} classNames="tarea">
                 <Tarea tarea={tarea} />
               </CSSTransition>
             ))}
