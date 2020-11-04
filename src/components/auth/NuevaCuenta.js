@@ -31,13 +31,18 @@ const onSubmit = e => {
   e.preventDefault();
 
   //Validar que no existan campos vacios
-  if(nombre.trim() === "" ||
-  email.trim() === "" ||
-  password.trim() === "" ||
-  confirmar.trim() === "") {
-    mostrarAlerta("Todos los campos son obligatorios", "alerta-error");
-    return;
-  };
+  // if(nombre.trim() === "" ||
+  // email.trim() === "" ||
+  // password.trim() === "" ||
+  // confirmar.trim() === "") {
+  //   mostrarAlerta("Todos los campos son obligatorios", "alerta-error");
+  //   return;
+  // };
+
+  if([nombre,email,password,confirmar].includes("")){
+        mostrarAlerta("Todos los campos son obligatorios", "alerta-error");
+        return;
+  }
 
   //Password minimo de 6 caracteres
   if(password.length < 6) {
