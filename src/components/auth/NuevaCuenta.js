@@ -46,15 +46,6 @@ const NuevaCuenta = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    //Validar que no existan campos vacios
-    // if(nombre.trim() === "" ||
-    // email.trim() === "" ||
-    // password.trim() === "" ||
-    // confirmar.trim() === "") {
-    //   mostrarAlerta("Todos los campos son obligatorios", "alerta-error");
-    //   return;
-    // };
-
     const checkValues = [nombre, email, password, confirmar].map((item) =>
       item.trim()
     );
