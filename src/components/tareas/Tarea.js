@@ -11,7 +11,7 @@ const Tarea = ({ tarea }) => {
   const {
     eliminarTarea,
     obtenerTareas,
-    cambiarEstadoTarea,
+    actualizarTarea,
     guardarTareaActual,
   } = tareasContext;
 
@@ -30,7 +30,7 @@ const Tarea = ({ tarea }) => {
     } else {
       tarea.estado = true;
     }
-    cambiarEstadoTarea(tarea);
+    actualizarTarea(tarea);
   };
 
   //seleccionar una tarea cuando el usuario quiera editarla
