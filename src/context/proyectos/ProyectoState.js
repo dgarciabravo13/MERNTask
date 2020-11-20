@@ -45,7 +45,7 @@ const ProyectoState = (props) => {
       
     } catch (error) {
       const alerta = {
-        msg:"Hubo un error",
+        msg:"Hubo un error al obtener Proyectos",
         categoria:"alerta-error"
       }
       dispatch({
@@ -67,7 +67,7 @@ const ProyectoState = (props) => {
       })
     } catch (error) {
       const alerta = {
-        msg:"Hubo un error",
+        msg:"Hubo un error al agregar Proyectos",
         categoria:"alerta-error"
       }
       dispatch({
@@ -106,7 +106,7 @@ const ProyectoState = (props) => {
       })
     } catch (error) {
       const alerta = {
-        msg:"Hubo un error",
+        msg:"Hubo un error al eliminar Proyecto",
         categoria:"alerta-error"
       }
       dispatch({
